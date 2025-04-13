@@ -2,6 +2,7 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "lodash": "^4.17.21",
@@ -11,7 +12,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node index",
+    "start": "node app",
     "dev": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

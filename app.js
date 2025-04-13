@@ -5,11 +5,7 @@ const date = require(__dirname + "/date.js"); // Optional if not used in renderi
 const app = express();
 const _=require('lodash');
 const cors=require("cors");
-app.use(cors({
-  origin: ["https://deploy-todolist.vercel.app"],
-  methods: ["POST", "GET"],
-  credentials: true
-}));
+require('dotenv').config();
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,7 +17,7 @@ app.get("/favicon.ico", (req, res) => res.status(204).end());
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://admin-anshika:ToDo123@cluster0.crnkllk.mongodb.net/todolistDB?retryWrites=true&w=majority&appName=Cluster0');
+  await mongoose.connect(process.env.MONGODB_URI);
   console.log("Connected to MongoDB");
 }
 // MongoDB connection
@@ -161,6 +157,7 @@ app.post("/delete", async (req, res) => {
 
 
 // Server start
-app.listen(3000, () => {
-  console.log("🚀 Server running at http://localhost:3000");
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log(`Server started on port ${port}`);
 });
