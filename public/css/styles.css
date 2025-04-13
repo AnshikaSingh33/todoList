@@ -144,8 +144,9 @@ form.item button {
         opacity: 0; /* End fully transparent */
     }
 }
-  #foot{
-    margin-left:43%;
+#foot {
+    width: fit-content; /* or a fixed width like 200px */
+    margin: 0 auto;
     background: none;
     border-radius: 0;
     box-shadow: none;
