@@ -4,7 +4,12 @@ const mongoose = require("mongoose");
 const date = require(__dirname + "/date.js"); // Optional if not used in rendering
 const app = express();
 const _=require('lodash');
-
+const cors=require("cors");
+app.use(cors({
+  origin: ["https://deploy-todolist.vercel.app"],
+  methods: ["POST", "GET"],
+  credentials: true
+}));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
